@@ -769,6 +769,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     apis = await fetch("/endpoints").then(res => res.json());
   } catch (err) {
     console.error("Gagal memuat konfigurasi API:", err);
+
+    document.getElementById('loading-screen').style.opacity = '0';
+    setTimeout(() => {
+      document.getElementById('loading-screen').style.display = 'none';
+      document.querySelector('.container').style.display = 'block';
+    }, 500);
+    
     return;
   }
 
@@ -999,4 +1006,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 </script>
     </body>
-</html>
+  </html>
