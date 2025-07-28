@@ -11,13 +11,13 @@
       "desc": "Openai chat",
       "status": "Active",
       "path": "/ai/openai?apikey=&text="
-    }, 
+    },
     {
       "name": "Gemini",
       "desc": "Gemini ai chat",
       "status": "Active",
       "path": "/ai/gemini?apikey=&text="
-    }    
+    }
   ],
   "orderkuota": [
     {
@@ -93,7 +93,7 @@
       "desc": "Downloader Youtube mp3",
       "status": "Active",
       "path": "/download/ytmp3?apikey=&url="
-    },    
+    },
     {
       "name": "Snackvideo",
       "desc": "Downloader snackvideo",
@@ -105,13 +105,13 @@
       "desc": "Downloader bstation video",
       "status": "Active",
       "path": "/download/bstation?apikey=&url="
-    },    
+    },
     {
       "name": "Soundcloud",
       "desc": "Downloader soundcloud song",
       "status": "Active",
       "path": "/download/soundcloud?apikey=&url="
-    },        
+    },
     {
       "name": "Gitclone",
       "desc": "Downloader gitclone",
@@ -123,13 +123,13 @@
       "desc": "Downloader likee video",
       "status": "Active",
       "path": "/download/likee?apikey=&url="
-    },    
+    },
     {
       "name": "Twitter",
       "desc": "Downloader twitter",
       "status": "Active",
       "path": "/download/twitter?apikey=&url="
-    },    
+    },
     {
       "name": "Mediafire",
       "desc": "Downloader mediafire",
@@ -187,13 +187,13 @@
       "desc": "Search bingimage foto",
       "status": "Active",
       "path": "/search/bingimage?apikey=&q="
-    },    
+    },
     {
       "name": "Bstation Search",
       "desc": "Bstation video search",
       "status": "Active",
       "path": "/search/bstation-search?apikey=&q="
-    },    
+    },
     {
       "name": "Pinterest",
       "desc": "Search pinterest foto",
@@ -205,13 +205,13 @@
       "desc": "Search google image",
       "status": "Active",
       "path": "/search/gimage?apikey=&q="
-    },    
+    },
     {
       "name": "Spotify Search",
       "desc": "Search spotify music",
       "status": "Active",
       "path": "/search/spotify?apikey=&q="
-    },    
+    },
     {
       "name": "Playstore",
       "desc": "Search playstore apk",
@@ -255,25 +255,25 @@
       "desc": "Lookup domain of ip address",
       "status": "Active",
       "path": "/tools/iplookup?apikey=&q="
-    },    
+    },
     {
       "name": "Whois",
       "desc": "Get dns record information",
       "status": "Active",
       "path": "/tools/whois?apikey=&dns="
-    },        
+    },
     {
       "name": "Shorturl tinyurl",
       "desc": "Shortner url tinyurl.com",
       "status": "Active",
       "path": "/tools/tinyurl?apikey=&url="
-    },            
+    },
     {
       "name": "Whoip",
       "desc": "Get ip address information",
       "status": "Active",
       "path": "/tools/whoip?apikey=&ip="
-    },            
+    },
     {
       "name": "Emoji Mix",
       "desc": "Emoji mix converter",
@@ -293,13 +293,13 @@
       "desc": "Stalk telegram account",
       "status": "Active",
       "path": "/stalk/telegram?apikey=&username="
-    },    
+    },
     {
       "name": "Youtube Stalk",
       "desc": "Stalk youtube account",
       "status": "Active",
       "path": "/stalk/youtube?apikey=&username="
-    },        
+    },
     {
       "name": "Tiktok Stalk",
       "desc": "Stalk tiktok account",
@@ -311,7 +311,7 @@
       "desc": "Stalk github account",
       "status": "Active",
       "path": "/stalk/github?apikey=&username="
-    },    
+    },
     {
       "name": "Npm Stalk",
       "desc": "Stalk npm package",
@@ -355,13 +355,13 @@
       "desc": "Brat text generator",
       "status": "Active",
       "path": "/imagecreator/brat?apikey=&text="
-    }, 
+    },
     {
       "name": "Brat Video",
       "desc": "Brat animated text generator",
       "status": "Active",
       "path": "/imagecreator/bratvideo?apikey=&text="
-    }    
+    }
   ],
   "Pterodactyl": [
     {
@@ -374,10 +374,10 @@
       "name": "List Panel",
       "desc": "List Akun Pterodactyl",
       "status": "Active",
-      "path": "/pterodactyl/listpanel?apikey=&eggid=&nestid=&loc=domain=&ptla="
+      "path": "/pterodactyl/listpanel?apikey=&eggid=&nestid=&loc=&domain=&ptla="
     },
     {
-      "name": "Delete Sever",
+      "name": "Delete Server",
       "desc": "Delete Server Pterodactyl",
       "status": "Active",
       "path": "/pterodactyl/deleteserver?apikey=&idserver=&domain=&ptla="
@@ -394,13 +394,13 @@
       "status": "Active",
       "path": "/pterodactyl/deleteuser?apikey=&iduser=&domain=&ptla="
     }
-    ],
+  ],
   "api": [
     {
       "name": "Status Api",
-      "desc": "",
+      "desc": "API Status",
       "status": "Active",
       "path": "/api/status"
     }
   ]
-}
+    }
