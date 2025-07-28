@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link id="icon" rel="icon" href="" type="image/png">  
   <title id="page"></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
   /* ===== Loading Screen Styles ===== */
   #loading-screen {
@@ -28,12 +28,12 @@
   
   .loading-spinner-large {
     border: 5px solid rgba(100, 149, 237, 0.1);
-    border-top: 5px solid rgba(26, 26, 26, 1);
+    border-top: 5px solid rgba(26, 26, 26, 0.8);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: rgba(26, 26, 26, 1);
-    animation: spin 0.8s linear infinite;
+    width: 50px;
+    height: 50px;
+    color: rgba(26, 26, 26, 0.8);
+    animation: spin 1s linear infinite;
     margin-bottom: 10px;
   }
   
@@ -42,10 +42,10 @@
     --primary-dark: #417cb8;
     --primary-light: #7fb3d5;
     --secondary: #88c1e0;
-    --dark: #010326;
-    --darker: #010326;
+    --dark: #2c3e50;
+    --darker: rgba(26, 26, 26, 0.9);
     --light: #ffffff;
-    --gray: rgba(0, 0, 0, 0.6);
+    --gray: #7f8c8d;
     --light-gray: #ecf0f1;
     --lighter-gray: #f5f7f8;
     --success: #27ae60;
@@ -62,7 +62,7 @@
   
   .loading-text {
     color: var(--darker);
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     margin-top: 5px;
     text-align: center;
     font-weight: 500;
@@ -88,46 +88,36 @@
     display: none !important;
   }
   
-#apiLinks {
-  display: flex;
-  flex-direction: column; /* atau row, bebas */
-  align-items: flex-start; /* penting agar <a> tidak memanjang */
-  gap: 3px;
-}
-
-
-#apiLinks span {
-font-size: 0.90rem;
+  #apiLinks a {
+  background: var(--darker);
+  border: 2px solid var(--darker);
+  padding: 0.4rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-#apiLinks a {
-  display: inline-block;
-  width: auto;
-  white-space: nowrap;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
-  transition: background 0.3s ease;
-}
-
+  color: white;
+  margin-right: 0.6rem;
+  transition: all 0.4s ease;
+  }
   
-#apiLinks #contactdev {
-background: #f7f7f7;
-}
+  #apiLinks a:nth-child(2) {
+  background: none;
+  border: 2px solid var(--darker);
+  color: var(--darker);
+  }
+  
 
   pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-x: auto;
     background: #ffffff;
-    color: rgba(26, 26, 26, 1);
+    color: rgba(26, 26, 26, 0.8);
     padding: 0.5rem;
+    border-radius: 2px;
     max-height: 400px;
     font-size: 0.85rem;    
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Poppins', serif;
   }
 
@@ -143,23 +133,23 @@ background: #f7f7f7;
   .modal-body form input {
     width: 100%;
     padding: 12px 14px;
-    border: 0.8px solid #bdc3c7;
-    background: #f7f7f7;
+    border-radius: 2px;
+    border: 1px solid #bdc3c7;
+    background: #ffffff;
     color: var(--darker);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-size: 0.80rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
     transition: var(--transition);
-    font-family: 'Poppins', serif;
   }
 
   .modal-body form input::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: #95a5a6;
   }
 
   .modal-body form input:focus {
     outline: none;
-    box-shadow: 0 0 0 1.2px var(--darker);
+    box-shadow: 0 0 0 1.5px var(--darker);
   }
 
   #submitParamBtn {
@@ -167,18 +157,20 @@ background: #f7f7f7;
     color: white;
     border: none;
     padding: 12px 24px;
-    font-size: 0.80rem;
-    font-family: 'Poppins', serif;
-    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 2px;
     cursor: pointer;
+    font-weight: 600;
     transition: var(--transition);
     width: 100%;
     margin-top: 0.5rem;
+    box-shadow: var(--shadow);
   }
 
   #submitParamBtn:hover {
     background: var(--darker);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 
   #submitParamBtn:active {
@@ -188,11 +180,11 @@ background: #f7f7f7;
   .loading-spinner {
     margin: 2rem auto 0.5rem auto;
     border: 3px solid rgba(91, 155, 213, 0.1);
-    border-top: 3px solid rgba(26, 26, 26, 1);
+    border-top: 3px solid rgba(26, 26, 26, 0.8);
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 0.8s linear infinite;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
   }
 
   @keyframes spin {
@@ -205,7 +197,7 @@ background: #f7f7f7;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 1.20rem;
+    margin-bottom: 1.25rem;
   }
   
   .icon-title {
@@ -245,12 +237,14 @@ background: #f7f7f7;
     width: 100%;
     max-width: 500px;
     background: #ffffff;
-    padding: 1rem;
+    border-radius: 2px;
+    padding: 1.5rem;
     color: var(--dark);
     overflow: hidden;
     transform: translateY(20px);
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0;
+    box-shadow: var(--shadow-lg);
     border: 1px solid #dfe6e9;
   }
 
@@ -263,18 +257,19 @@ background: #f7f7f7;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 0.3rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #dfe6e9;
+    margin-bottom: 1rem;
   }
 
   .modal-header h5 {
-    font-size: 0.90rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--darker);
-    margin-bottom: 5px;
   }
 
   .modal-header span {
-    font-size: 0.80rem;
+    font-size: 0.90rem;
     color: var(--gray);
     display: block;
     font-weight: 500;
@@ -283,13 +278,14 @@ background: #f7f7f7;
   .btn-close {
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 1;
     cursor: pointer;
     color: var(--darker);
     transition: var(--transition);
     padding: 0.25rem;
-    font-weight: 400;
+    border-radius: 2px;
+    font-weight: 500;
   }
 
   .btn-close:hover {
@@ -307,12 +303,14 @@ background: #f7f7f7;
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    background: #f7f7f7;
+    background-color: var(--lighter-gray);
+    border: 2px solid #dfe6e9;
     padding: 10px 14px;
-    font-size: 0.80rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
     color: var(--darker);
     margin-bottom: 1rem;
-    overflow: scroll;
+    overflow: auto;
     font-weight: 500;
     transition: var(--transition);
   }
@@ -332,9 +330,37 @@ background: #f7f7f7;
     to { opacity: 1; }
   }
 
+  .copy-button {
+    background: var(--darker);
+    border: none;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    font-weight: 500;
+    min-width: 20px;
+  }
+
+  .copy-button:hover {
+    background: var(--darker);
+    transform: translateY(-1px);
+  }
+
+  .copy-button:active {
+    transform: translateY(0);
+  }
+
   #apiResponseContent {
     background-color: #ffffff;
     padding: 1rem;
+    border-radius: 2px;
     border: 2px solid #dfe6e9;
     font-size: 0.9rem;
     max-height: 400px;
@@ -352,6 +378,7 @@ background: #f7f7f7;
   .image-response {
     max-width: 100%;
     max-height: 300px;
+    border-radius: 2px;
     display: block;
     margin: 0 auto;
     box-shadow: var(--shadow-sm);
@@ -360,6 +387,7 @@ background: #f7f7f7;
   .video-response {
      max-width: 100%;
      height: auto;
+     border-radius: 8px;
    }
    
    .audio-response {
@@ -369,9 +397,9 @@ background: #f7f7f7;
 
   /* ===== Page Sections ===== */
   .container {
-    max-width: 1300px;
-    margin: 5rem 0 auto;
-    padding: 0 0.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 
   header h1 {
@@ -383,15 +411,15 @@ background: #f7f7f7;
 
   .hero {
     text-align: left;
-    margin: 2.5rem 0rem;
+    margin: 2.5rem 0 3rem;
     max-width: 800px;
   }
 
   .hero h2 {
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--darker);
-    margin-bottom: -15px;
+    margin-bottom: -10px;
     animation: gradient 8s ease infinite;
   }
 
@@ -403,10 +431,47 @@ background: #f7f7f7;
 
   .hero p {
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.8);
-    margin-bottom: 1.5rem;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 2rem;
     font-weight: 500;
     font-family: 'Poppins', serif;
+  }
+
+  /* ===== Stats ===== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stats div {
+    background: var(--card-bg);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid #dfe6e9;
+    box-shadow: var(--shadow);
+  }
+
+  .stats div:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+    box-shadow: var(--shadow-md);
+  }
+
+  .stats h3 {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .stats p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--darker);
   }
 
   .content h2 {
@@ -421,7 +486,7 @@ background: #f7f7f7;
     display: flex;
     gap: 1rem;
     overflow-x: auto;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
     padding-bottom: 6px;
     scrollbar-width: none;
   }
@@ -435,12 +500,11 @@ background: #f7f7f7;
     background: none;
     color: rgba(0, 0, 0, 0.6);
     border: none;
-    font-weight: 500;
-    font-family: 'Poppins', serif;
+    font-weight: 700;
     border-bottom: 2px solid transparent;
-    padding: 0.05rem 0;
+    padding: 0.25rem 0;
     cursor: pointer;
-    font-size: 0.90rem;
+    font-size: 1rem;
     white-space: nowrap;
     position: relative;
   }
@@ -467,19 +531,22 @@ background: #f7f7f7;
   .api-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 0.4rem;
-    margin-bottom: 2rem;
+    gap: 1.25rem;
+    margin-bottom: 4rem;
   }
 
   /* ===== API Cards ===== */
   .api-card {
-    background: #f7f7f7;
-    padding: 0.90rem 0.8rem;
+    background: var(--card-bg);
+    padding: 0.8rem;
+    border-radius: 2px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 35px;
+    min-height: 50px;
     opacity: 0;
     transform: translateY(20px);
     animation: cardEntrance 0.6s ease-out forwards;
@@ -519,15 +586,17 @@ background: #f7f7f7;
   .play-button {
     background: var(--darker);
     border: none;
-    padding: 8px 10px;
-    color: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    padding: 10px 10px;
+    color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    font-size: 0.80rem;
-    font-weight: 500;
+    font-size: 0.88rem;
+    font-weight: 600;
     transition: var(--transition);
     display: flex;
     align-items: center;
     gap: 8px;
+    box-shadow: var(--shadow);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     align-self: center;
     margin-top: 0;
@@ -546,26 +615,48 @@ background: #f7f7f7;
   }
 
   .api-info h3 {
-    font-size: 0.90rem;
+    font-size: 1rem;
     color: var(--darker);
     font-weight: 500;
-    margin-bottom: 5px;
-  }
-  
-  .api-info h3 span {
-  font-size: 0.80rem;
-  font-weight: 500;
-  padding: 0.1rem 0.2rem;
-  margin-right: 2px;
-  background: rgba(74, 143, 255, 0.2);
   }
 
   .api-info p {
     font-size: 0.80rem;
     color: var(--gray);
     font-weight: 500;
+    margin-bottom: 0.7rem;
     line-height: 1.5;
     
+  }
+  
+  .api-card:hover .status {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .status {
+    background: rgba(39, 174, 96, 0.1);
+    padding: 0.35rem 1.6rem;
+    border-radius: 2px;
+    font-size: 0.75rem;
+    color: var(--success);
+    display: inline-block;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(39, 174, 96, 0.2);
+  }
+
+  .status.warning {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--warning);
+    border-color: rgba(243, 156, 18, 0.2);
+  }
+
+  .status.danger {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--danger);
+    border-color: rgba(231, 76, 60, 0.2);
   }
 
   .play-button:hover {
@@ -575,6 +666,16 @@ background: #f7f7f7;
 
   .play-button:active {
     transform: translateY(0);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-top: 2px solid #dfe6e9;
+    margin-top: 3rem;
   }
 
   .contact {
@@ -632,13 +733,16 @@ background: #f7f7f7;
     }
     
     .hero p {
-      font-size: 0.80rem;
+      font-size: 0.9rem;
     }
     
     .api-list {
       grid-template-columns: 1fr;
     }
     
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 480px) {
@@ -646,78 +750,32 @@ background: #f7f7f7;
       font-size: 1.7rem;
     }
     
+    .stats {
+      grid-template-columns: 1fr;
+    }
+    
     .modal-dialog {
       padding: 1.25rem;
     }
   }
-  
-  /* Navbar Styles */
-.navbar {
-  background: #fff;
-  border-bottom: 1.2px solid #eee;
-  padding: 14px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.navbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0.8rem;
-}
-
-.brand {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--dark);
-  font-family: 'Poppins', serif;
-}
-
-.navbar-right .nav-icon {
-  color: #4caf50;
-  font-size: 1.2rem;
-  text-decoration: none;
-  padding: 6px;
-  transition: color 0.3s ease;
-}
-
-.navbar-right .nav-icon:hover {
-  color: #388e3c;
-}
   </style>
 </head>
 <body>
   <!-- Loading Screen -->
   <div id="loading-screen">
     <div class="loading-spinner-large"></div>
-    <div class="loading-text"></div>
+    <div class="loading-text">Loading ...</div>
   </div>
-  
-  <header class="navbar">
-  <div class="navbar-container">
-    <div class="navbar-left">
-      <span id ="navname" class="brand">X-Skycode</span>
-    </div>
-    <div class="navbar-right">
-      <a id="WhatsApp" href="https://wa.me/yourwhatsapplink" class="nav-icon" aria-label="WhatsApp Support">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
-  </div>
-</header>
 
   <div class="container">
     <section class="hero fade-in">
       <div class="title-container">
         <h2 id="apiTitle"></h2>
       </div>
-      <p>Simple and fast API for full-featured WhatsApp Bot integration.</p>
+      <p>Simple API with easy and minimalistic integration for WhatsApp Bot Developers.</p>
           <section id="apiLinks">
-    <span>Base URL: </span><a id="contactdev" href="#" title="Contact Dev"></a>
+    <a id="information" href="#" title="Information">Information API</a>
+    <a id="contactdev" href="#" title="Contact Dev">Contact Dev</a>
     </section>
     </section>
 
@@ -733,13 +791,16 @@ background: #f7f7f7;
       <div class="modal-header">
         <div>
           <h5></h5>
-          <span id="desc"></span>
+          <span></span>
         </div>
         <button id="btn-close" class="btn-close">×</button>
       </div>
       <div class="modal-body">
         <div class="copy-section">
           <span id="copyEndpointText"></span>
+          <button class="copy-button">
+            <i class="far fa-copy"></i>
+          </button>
         </div>
         <form id="paramForm" style="margin-bottom: 0.5rem"></form>
         <button id="submitParamBtn" type="button">Submit Request</button>
@@ -748,262 +809,299 @@ background: #f7f7f7;
       </div>
     </div>
   </div>
-<script>
-document.addEventListener('DOMContentLoaded', async () => {
-  document.querySelector('.container').style.display = 'none';
 
-  const tabsContainer = document.getElementById("tabs");
-  const apiList = document.getElementById("api-list");
-  const paramForm = document.getElementById("paramForm");
-  const submitBtn = document.getElementById("submitParamBtn");
-  const modal = document.getElementById("apiResponseModal");
+  <footer class="footer">
+    <div id="credits"></div>
+    <div class="contact">
+      <a id="githubLink" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a id="whatsappLink" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a id="youtubeLink" target="_blank" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+  
+  (async () => {
+  const settings = await fetch("/settings.json").then(res => res.json());
+  
+  document.getElementById("icon").href = settings.favicon
+  const head = document.head;
+  
+  const ogTags = [
+        { property: 'og:title', content: settings.apititle },
+        { property: 'og:description', content: "Simple API with easy and minimalistic integration for WhatsApp Bot Developers." },
+        { property: 'og:image', content: settings.favicon },
+        { property: 'og:url', content: window.location.href },
+        { property: 'og:type', content: 'website' }
+      ];
+      
+  ogTags.forEach(({ property, content }) => {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.setAttribute('content', content);
+        head.appendChild(meta);
+      });
+  
+  })()
+  
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hide the main content initially
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('footer').style.display = 'none';
+      
+      // Load settings and then hide loading screen
+      loadSettings().then(() => {
+        setTimeout(() => {
+          document.getElementById('loading-screen').style.opacity = '0';
+          setTimeout(() => {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.querySelector('.container').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+          }, 500);
+        }, 1000);
+      });
+    });
+
+    async function loadSettings() {
+      const tabsContainer = document.getElementById("tabs");
+      const apiList = document.getElementById("api-list");
+      let currentEndpoint = "";
+
+      const settings = await fetch("/settings.json").then(res => res.json());
+      const apis = await fetch("/api/endpoints.json").then(res => res.json());
+
+      const setContent = (id, property, value) => {
+        const el = document.getElementById(id);
+        if (el) el[property] = value;
+      };
+
+      setContent("page", "textContent", "Docs - " + settings.apititle || "Docs - Skyzopedia API");
+      setContent("credits", "textContent", `© ${new Date().getFullYear()} Powered by ${settings.creator || "Skyzopedia"}`);
+      setContent("apiTitle", "textContent", settings.apititle || "Skyzopedia API");
+
+      document.getElementById("githubLink").href = settings.github || "#";
+      document.getElementById("whatsappLink").href = settings.whatsapp || "#";
+      document.getElementById("youtubeLink").href = settings.youtube || "#";
+      document.getElementById("information").href = settings.saluran || "#";
+      document.getElementById("contactdev").href = settings.whatsapp || "#";
+
+      // Create tabs
+      Object.keys(apis).forEach((key, index) => {
+        const button = document.createElement("button");
+        button.className = `tab ${index === 0 ? "active" : ""}`;
+        button.dataset.tab = key;
+        button.innerText = key.charAt(0).toUpperCase() + key.slice(1);
+        tabsContainer.appendChild(button);
+      });
+
+      // Render API cards
+      function renderAPIs(category) {
+        apiList.innerHTML = "";
+        apis[category].sort((a, b) => a.name.localeCompare(b.name)).forEach((api, i) => {
+          const card = document.createElement("div");
+          card.className = "api-card";
+          
+          
+          // Determine status class
+          let statusClass = "";
+          if (api.status.toLowerCase().includes("maintenance")) statusClass = "danger";
+          else if (api.status.toLowerCase().includes("beta")) statusClass = "warning";
+          else statusClass = "";
+          
+          card.innerHTML = `
+            <div class="api-info">
+              <h3>${api.name}</h3>
+              ${api.desc ? `<p>${api.desc}</p>` : "" }
+              <span class="status ${statusClass}">${api.status}</span>
+            </div>
+            <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}">
+              <i class="fa-solid fa-play"></i> Try API
+            </button>
+          `;
+          apiList.appendChild(card);
+          
+          // Trigger reflow to restart animation
+          setTimeout(() => {
+            card.style.animation = `cardEntrance 0.6s ease-out ${i * 0.1}s forwards`;
+          }, 10);
+        });
+      }
+
+      // Initial render
+      renderAPIs(Object.keys(apis)[0]);
+
+      // Tab click event
+      tabsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("tab")) {
+          document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+          e.target.classList.add("active");
+          renderAPIs(e.target.dataset.tab);
+        }
+      });
+
+      // Event listeners
+      document.addEventListener("click", (e) => {
+        // Play button click
+        if (e.target.closest(".play-button")) {
+          const btn = e.target.closest(".play-button");
+          const endpoint = btn.getAttribute("data-endpoint");
+          const api = btn.getAttribute("data-api");
+          const desc = btn.getAttribute("data-desc");
+
+          const paramForm = document.getElementById("paramForm");
+          const submitBtn = document.getElementById("submitParamBtn");
+          const modal = document.getElementById("apiResponseModal");
+
+          // Reset modal state
+          document.getElementById("apiResponseContent").textContent = "";
+          document.getElementById("apiResponseContent").classList.add("d-none");
+          document.getElementById("apiResponseLoading").style.display = "none";
+          paramForm.style.display = "block";
+          submitBtn.style.display = "none";
+
+          currentEndpoint = endpoint;
+          paramForm.innerHTML = "";
+
+          document.querySelector(".modal-dialog h5").innerText = api;
+          document.querySelector(".modal-dialog span").innerText = desc;
+
+          // Check if endpoint has parameters
+          if (endpoint.includes("?")) {
+            const queryParams = endpoint.split("?")[1].split("&");
+
+            queryParams.forEach(param => {
+              const [key, value] = param.split("=");
+              paramForm.innerHTML += `
+                <input type="text" id="${key}" name="${key}" value="${value || ''}" 
+                       placeholder="Enter ${key}" required />
+              `;
+            });
+
+            submitBtn.style.display = "block";
+          } else {
+            // If no parameters, fetch immediately
+            fetchAPI(endpoint);
+          }
+          
+          modal.classList.add("active");
+          document.querySelector(".copy-section").classList.add("active");
+          document.getElementById("copyEndpointText").innerText = window.location.origin + endpoint;
+        }
+        
+
+        // Copy button click
+        if (e.target.closest(".copy-button")) {
+          const textToCopy = document.getElementById("copyEndpointText").innerText;
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            const copyBtn = e.target.closest(".copy-button");
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+              copyBtn.innerHTML = '<i class="far fa-copy"></i>';
+            }, 2000);
+          });
+        }
+        
+        // Close modal
+        if (e.target.id === "btn-close" || e.target === document.getElementById("apiResponseModal")) {
+          document.getElementById("apiResponseModal").classList.remove("active");
+        }
+      });
+
+      // Submit parameters
+      document.getElementById("submitParamBtn").addEventListener("click", () => {
+        const form = document.getElementById("paramForm");
+        const submitBtn = document.getElementById("submitParamBtn");
+        
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        form.style.display = "none";
+        submitBtn.style.display = "none";
+        document.getElementById("apiResponseLoading").style.display = "block";
+        
+        let endpoint = currentEndpoint.split("?")[0] + "?";
+        const inputs = form.querySelectorAll("input");
+        
+        inputs.forEach((input, index) => {
+          endpoint += `${input.name}=${encodeURIComponent(input.value)}`;
+          if (index < inputs.length - 1) endpoint += "&";
+        });
+        
+        fetchAPI(endpoint);
+      });
+    }    
+
+function fetchAPI(endpoint) {
+  const fullURL = window.location.origin + endpoint;
   const responseEl = document.getElementById("apiResponseContent");
   const loadingEl = document.getElementById("apiResponseLoading");
   const urlsSection = document.querySelector(".copy-section");
+  const modal = document.getElementById("apiResponseModal");
 
-  let currentEndpoint = "";
-  let settings = {}, apis = {};
+  // Show loading state
+  paramForm.style.display = "none";
+  document.getElementById("submitParamBtn").style.display = "none";
+  loadingEl.style.display = "block";
+  responseEl.classList.add("d-none");
+  responseEl.innerHTML = "";
+  urlsSection.classList.add("active");
+  document.getElementById("copyEndpointText").innerText = fullURL;
 
-  try {
-    settings = await fetch("/set").then(res => res.json());
-    apis = await fetch("/endpoints").then(res => res.json());
-  } catch (err) {
-    console.error("Gagal memuat konfigurasi API:", err);
-
-    document.getElementById('loading-screen').style.opacity = '0';
-    setTimeout(() => {
-      document.getElementById('loading-screen').style.display = 'none';
-      document.querySelector('.container').style.display = 'block';
-    }, 500);
-    
-    return;
-  }
-
-  const iconEl = document.getElementById("icon");
-  if (iconEl) iconEl.href = settings.favicon_url || "";
-
-  const head = document.head;
-  const ogTags = [
-    { property: 'og:title', content: settings.api_title },
-    { property: 'og:description', content: "Simple API with easy and minimalistic integration for WhatsApp Bot Developers." },
-    { property: 'og:image', content: settings.favicon_url },
-    { property: 'og:url', content: window.location.href },
-    { property: 'og:type', content: 'website' }
-  ];
-  ogTags.forEach(({ property, content }) => {
-    const meta = document.createElement('meta');
-    meta.setAttribute('property', property);
-    meta.setAttribute('content', content);
-    head.appendChild(meta);
-  });
-
-  const setContent = (id, prop, val) => {
-    const el = document.getElementById(id);
-    if (el) el[prop] = val;
-  };
-
-  setContent("page", "textContent", "Docs - " + (settings.api_title || "Skyzopedia API"));
-  setContent("apiTitle", "textContent", settings.api_title || "Skyzopedia API");
-  setContent("contactdev", "textContent", window.location.origin || "#");
-  setContent("contactdev", "href", window.location.origin || "#");
-  setContent("WhatsApp", "href", settings.contact_whatsapp || "#");
-  setContent("navname", "textContent", settings.creator_name || "#");
-
-  const categories = Object.keys(apis);
-  if (categories.length === 0) return;
-
-  categories.forEach((key, i) => {
-    const btn = document.createElement("button");
-    btn.className = `tab`;
-    btn.dataset.tab = key;
-    btn.textContent = key;
-    tabsContainer.appendChild(btn);
-  });
-
-  function renderAPIs(category) {
-    apiList.innerHTML = "";
-    if (!apis[category]) return;
-
-    apis[category].sort((a, b) => a.name.localeCompare(b.name)).forEach((api, i) => {
-      const card = document.createElement("div");
-      card.className = "api-card";
-      card.innerHTML = `
-        <div class="api-info">
-          <h3><span id="method">GET</span> ${api.name}</h3>
-          ${api.desc ? `<p>${api.desc}</p>` : ""}
-        </div>
-        <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}">
-          <i class="fa-solid fa-play"></i>
-        </button>
-      `;
-      apiList.appendChild(card);
-      setTimeout(() => {
-        card.style.animation = `cardEntrance 0.6s ease-out ${i * 0.1}s forwards`;
-      }, 10);
-    });
-  }
-
-  // === Custom kategori pertama yang ditampilkan ===
-  const defaultCategory = categories[1] // <-- Ubah ini sesuai kategori yang kamu mau
-  const initialCategory = apis[defaultCategory] ? defaultCategory : categories[0];
-  renderAPIs(initialCategory);
-
-  // Tandai tab aktif
-  const activeTab = [...tabsContainer.querySelectorAll(".tab")]
-    .find(tab => tab.dataset.tab === initialCategory);
-  if (activeTab) {
-    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-    activeTab.classList.add("active");
-  }
-
-  // Event click tab
-  tabsContainer.addEventListener("click", (e) => {
-    const tabBtn = e.target.closest(".tab");
-    if (!tabBtn || !tabBtn.dataset.tab) return;
-
-    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-    tabBtn.classList.add("active");
-
-    const selectedCategory = tabBtn.dataset.tab;
-    if (apis[selectedCategory]) {
-      renderAPIs(selectedCategory);
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (e.target.closest(".play-button")) {
-      const btn = e.target.closest(".play-button");
-      const endpoint = btn.getAttribute("data-endpoint");
-      const api = btn.getAttribute("data-api");
-      const desc = btn.getAttribute("data-desc");
-
-      const method = btn.parentElement.querySelector(".api-method")?.textContent?.trim() || "GET";
-
-      currentEndpoint = endpoint;
-
-      const h5 = document.querySelector(".modal-dialog h5");
-      h5.innerHTML = `
-        <span id="method" style="
-          display: inline-block;
-          font-size: 0.80rem;
-          font-weight: 500;
-          color: var(--darker);
-          padding: 0.1rem 0.2rem;
-          margin-right: 6px;
-          background: rgba(74, 143, 255, 0.2);
-        ">${method}</span>${api}`;
-
-      document.querySelector(".modal-dialog #desc").textContent = desc;
-
-      responseEl.textContent = "";
-      responseEl.classList.add("d-none");
+  fetch(fullURL)
+    .then(async (res) => {
       loadingEl.style.display = "none";
-      paramForm.style.display = "block";
-      submitBtn.style.display = "none";
-      paramForm.innerHTML = "";
+      const contentType = res.headers.get("content-type");
 
-      if (endpoint.includes("?")) {
-        const queryParams = endpoint.split("?")[1].split("&");
-        queryParams.forEach(param => {
-          const [key, value] = param.split("=");
-          paramForm.innerHTML += `
-            <input type="text" id="${key}" name="${key}" value="${value || ''}" placeholder="Input ${key}" required />
-          `;
-        });
-        submitBtn.style.display = "block";
-      } else {
-        fetchAPI(endpoint);
+      if (contentType && contentType.includes("application/json")) {
+        const data = await res.json();
+        responseEl.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+      } 
+      else if (contentType && contentType.startsWith("image/")) {
+        const blob = await res.blob();
+        const imgUrl = URL.createObjectURL(blob);
+        responseEl.innerHTML = `<img src="${imgUrl}" class="image-response" alt="API Response" />`;
+      } 
+      else if (contentType && contentType.startsWith("video/")) {
+        const blob = await res.blob();
+        const videoUrl = URL.createObjectURL(blob);
+        responseEl.innerHTML = `
+          <video controls class="video-response" autoplay>
+            <source src="${videoUrl}" type="${contentType}">
+            Your browser does not support the video tag.
+          </video>
+        `;
+      }
+      else if (contentType && contentType.startsWith("audio/")) {
+        const blob = await res.blob();
+        const audioUrl = URL.createObjectURL(blob);
+        responseEl.innerHTML = `
+          <audio controls class="audio-response" autoplay>
+            <source src="${audioUrl}" type="${contentType}">
+            Your browser does not support the audio tag.
+          </audio>
+        `;
+      }
+      else {
+        const text = await res.text();
+        responseEl.innerHTML = `<pre>${text.substring(0, 1000)}</pre>`;
       }
 
-      modal.classList.add("active");
-      urlsSection.classList.add("active");
-      document.getElementById("copyEndpointText").textContent = window.location.origin + endpoint;
-    }
-
-    if (e.target.id === "btn-close" || e.target === modal) {
-      modal.classList.remove("active");
-      document.body.style.overflow = '';
-    }
-  });
-
-  submitBtn.addEventListener("click", () => {
-    if (!paramForm.checkValidity()) {
-      paramForm.reportValidity();
-      return;
-    }
-
-    paramForm.style.display = "none";
-    submitBtn.style.display = "none";
-    loadingEl.style.display = "block";
-
-    let endpoint = currentEndpoint.split("?")[0] + "?";
-    const inputs = paramForm.querySelectorAll("input");
-    inputs.forEach((input, index) => {
-      endpoint += `${input.name}=${encodeURIComponent(input.value)}`;
-      if (index < inputs.length - 1) endpoint += "&";
+      responseEl.classList.remove("d-none");
+    })
+    .catch((err) => {
+      loadingEl.style.display = "none";
+      responseEl.classList.remove("d-none");
+      responseEl.innerHTML = `<pre>Error: ${err.message}</pre>`;
     });
-
-    fetchAPI(endpoint);
-  });
-
-  setTimeout(() => {
-    document.getElementById('loading-screen').style.opacity = '0';
-    setTimeout(() => {
-      document.getElementById('loading-screen').style.display = 'none';
-      document.querySelector('.container').style.display = 'block';
-    }, 500);
-  }, 1000);
-
-  function fetchAPI(endpoint) {
-    const fullURL = window.location.origin + endpoint;
-
-    paramForm.style.display = "none";
-    submitBtn.style.display = "none";
-    loadingEl.style.display = "block";
-    responseEl.classList.add("d-none");
-    responseEl.innerHTML = "";
-    urlsSection.classList.add("active");
-    document.getElementById("copyEndpointText").textContent = fullURL;
-
-    fetch(fullURL)
-      .then(async (res) => {
-        loadingEl.style.display = "none";
-        const contentType = res.headers.get("content-type");
-
-        if (contentType.includes("application/json")) {
-          const data = await res.json();
-          responseEl.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-        } else if (contentType.startsWith("image/")) {
-          const blob = await res.blob();
-          responseEl.innerHTML = `<img src="${URL.createObjectURL(blob)}" class="image-response" />`;
-        } else if (contentType.startsWith("video/")) {
-          const blob = await res.blob();
-          responseEl.innerHTML = `
-            <video controls class="video-response" autoplay>
-              <source src="${URL.createObjectURL(blob)}" type="${contentType}">
-              Your browser does not support the video tag.
-            </video>`;
-        } else if (contentType.startsWith("audio/")) {
-          const blob = await res.blob();
-          responseEl.innerHTML = `
-            <audio controls class="audio-response" autoplay>
-              <source src="${URL.createObjectURL(blob)}" type="${contentType}">
-              Your browser does not support the audio tag.
-            </audio>`;
-        } else {
-          const text = await res.text();
-          responseEl.innerHTML = `<pre>${text.substring(0, 1000)}</pre>`;
-        }
-
-        responseEl.classList.remove("d-none");
-      })
-      .catch((err) => {
-        loadingEl.style.display = "none";
-        responseEl.classList.remove("d-none");
-        responseEl.innerHTML = `<pre>Error: ${err.message}</pre>`;
-      });
-  }
-});
-</script>
-    </body>
-  </html>
+}
+  </script>
+</body>
+          </html>
