@@ -17,7 +17,6 @@ module.exports = function (app) {
       });
     }
 
-    // Mapping angka RAM (dari <select>) ke preset
     const ramMapping = {
       "1024": { ram: "1000", disk: "1000", cpu: "40" },
       "2048": { ram: "2000", disk: "1000", cpu: "60" },
@@ -29,7 +28,7 @@ module.exports = function (app) {
       "8192": { ram: "8000", disk: "4000", cpu: "180" },
       "9216": { ram: "9000", disk: "5000", cpu: "200" },
       "10240": { ram: "10000", disk: "5000", cpu: "220" },
-      "0": { ram: "0", disk: "0", cpu: "0" }, // unlimited
+      "0": { ram: "0", disk: "0", cpu: "0" }
     };
 
     const spec = ramMapping[ram];
@@ -48,6 +47,12 @@ module.exports = function (app) {
     };
 
     try {
+      // Cek token valid
+      const checkAuth = await fetch(`${domain}/api/application/users`, { headers });
+      if (checkAuth.status === 401) {
+        return res.status(401).json({ status: false, error: "Token Pterodactyl tidak valid atau expired (401)" });
+      }
+
       // 1. Create user
       const userPayload = {
         email,
