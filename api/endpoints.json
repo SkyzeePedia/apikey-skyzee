@@ -17,6 +17,12 @@
       "desc": "Gemini ai chat",
       "status": "Active",
       "path": "/ai/gemini?apikey=&text="
+    },
+    {
+      "name": "Blackbox",
+      "desc": "Blackbox ai chat",
+      "status": "Active",
+      "path": "/ai/blackbox?apikey=&text="
     }
   ],
   "orderkuota": [
