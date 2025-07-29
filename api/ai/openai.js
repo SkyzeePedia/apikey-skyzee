@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 module.exports = function(app) {
-  const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "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";
+  const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "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";
 
   async function OpenAi(teks) {
     try {
