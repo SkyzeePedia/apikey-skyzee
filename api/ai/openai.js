@@ -1,22 +1,23 @@
-const fetch = require('node-fetch');
-
 module.exports = function(app) {
-  // Ganti ini dengan API Key OpenAI resmi kamu
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY || "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";
+  const fetch = require("node-fetch");
 
-  async function OpenAi(teks) {
+  // Masukkan API key OpenAI (sk-proj)
+  const OPENAI_KEY = process.env.OPENAI_API_KEY || "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";
+
+  async function Llama(prompt) {
     try {
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${OPENAI_API_KEY}`,
-          "Content-Type": "application/json"
+          "Authorization": `Bearer ${OPENAI_KEY}`,
+          "Content-Type": "application/json",
+          "OpenAI-Project": "default" // penting untuk sk-proj
         },
         body: JSON.stringify({
-          model: "gpt-4o-mini", // Model yang cepat & murah
+          model: "gpt-4o-mini", // cepat & murah
           messages: [
-            { role: "system", content: "Kamu adalah asisten AI yang ramah." },
-            { role: "user", content: teks }
+            { role: "system", content: "Kamu adalah AI yang ramah." },
+            { role: "user", content: prompt }
           ]
         })
       });
@@ -28,32 +29,28 @@ module.exports = function(app) {
       }
 
       return data.choices[0].message.content.trim();
-
     } catch (err) {
-      throw new Error("Failed to fetch from OpenAI API: " + err.message);
+      throw new Error("OpenAI Error: " + err.message);
     }
   }
 
-  // Endpoint GET
   app.get('/ai/openai', async (req, res) => {
-    const { text, apikey } = req.query;
-
-    if (!text) {
-      return res.json({ status: false, error: 'Text is required' });
-    }
-
-    if (!apikey || !global.apikey || !global.apikey.includes(apikey)) {
-      return res.json({ status: false, error: 'Invalid or missing API key' });
-    }
-
     try {
-      const result = await OpenAi(text);
+      const { text, apikey } = req.query;
+      if (!global.apikey.includes(apikey)) {
+        return res.json({ status: false, error: 'Apikey invalid' });
+      }
+      if (!text) {
+        return res.json({ status: false, error: 'Text is required' });
+      }
+
+      const result = await Llama(text);
       res.status(200).json({
         status: true,
         result
       });
     } catch (error) {
-      res.status(500).json({ status: false, error: error.message });
+      res.json({ status: false, error: error.message });
     }
   });
 };
