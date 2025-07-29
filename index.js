@@ -83,6 +83,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// 404 handler (wajib paling bawah)
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, '404.html'));
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(chalk.bgHex('#90EE90').hex('#333').bold(` Server is running on port ${PORT} `));
