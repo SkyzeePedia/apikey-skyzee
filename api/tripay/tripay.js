@@ -8,7 +8,7 @@ const transactions = new Map();
 
 // Helper Functions
 function generateTransactionId() {
-    return `TRIPAY-${Date.now()}-${crypto.randomBytes(2).toString('hex').toUpperCase()}`;
+    return `SKYZEE-${Date.now()}-${crypto.randomBytes(2).toString('hex').toUpperCase()}`;
 }
 
 function generateExpirationTime(minutes = 30) {
@@ -25,7 +25,7 @@ function generateTripaySignature(merchantRef, amount, privateKey) {
 async function uploadQRImage(buffer) {
     try {
         const service = new ImageUploadService('pixhost.to');
-        const { directLink } = await service.uploadFromBinary(buffer, 'qris-tripay.png');
+        const { directLink } = await service.uploadFromBinary(buffer, 'SkyCode.png');
         return directLink;
     } catch (error) {
         console.error('QR Upload Error:', error);
@@ -158,7 +158,7 @@ function startPaymentChecker(tripayApiKey, interval = 30000) {
 module.exports = function(app) {
     let paymentCheckerInterval = null;
 
-    app.get('/orderkuota/createpayment', async (req, res) => {
+    app.get('/tripay/createpayment', async (req, res) => {
         const { 
             apikey, 
             amount, 
@@ -240,7 +240,7 @@ module.exports = function(app) {
         }
     });
     
-    app.get('/orderkuota/cekstatus', async (req, res) => {
+    app.get('/tripay/cekstatus', async (req, res) => {
         const { 
             apikey, 
             reference, 
