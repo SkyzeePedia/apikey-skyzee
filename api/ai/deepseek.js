@@ -5,7 +5,7 @@ module.exports = function(app) {
 
   async function Deepsek(teks) {
     try {
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      const response = await fetch("https://api.deepseek.com", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${DEEPSEEK_API_KEY}`,
