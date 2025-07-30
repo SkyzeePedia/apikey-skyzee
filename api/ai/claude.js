@@ -2,7 +2,7 @@ module.exports = function(app) {
   const fetch = require('node-fetch');
 
   // API key khusus Claude
-  const CLAUDE_KEY = "sk-antropic-xxxxx"; // Ganti pake API key Claude asli lu
+  const CLAUDE_KEY = "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"; // Ganti pake API key Claude asli lu
 
   async function ClaudeAI(prompt) {
     const url = `https://api.anthropic.com/v1/messages`;
