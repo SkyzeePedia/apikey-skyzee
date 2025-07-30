@@ -39,6 +39,20 @@
       "path": "/orderkuota/cekstatus?apikey=&merchant=&keyorkut="
     }
   ],
+  "tripay": [
+    {
+      "name": "Create Payment",
+      "desc": "Create qris payment",
+      "status": "Active",
+      "path": "/tripay/createpayment?apikey=1&amount=&tripay_apikey=&tripay_privatekey=&tripay_merchant="
+    },
+    {
+      "name": "Cek Status",
+      "desc": "Cek status payment",
+      "status": "Active",
+      "path": "/tripay/cekstatus?apikey=&reference=&tripay_apikey="
+    }
+  ],
   "downloader": [
     {
       "name": "Tiktok",
