@@ -1,62 +1,62 @@
-const fetch = require('node-fetch')
-
-// API Key DeepSeek otomatis
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "sk-5c23491504274729a526ba53a92ef8f9"
-
 module.exports = function(app) {
+  const fetch = require('node-fetch');
 
-  // Fungsi untuk request ke DeepSeek
-  async function Deepseek(text) {
-    try {
-      const response = await fetch("https://api.deepseek.com/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${DEEPSEEK_API_KEY}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "deepseek-chat",
-          messages: [
-            { role: "system", content: "Kamu adalah AI ramah yang menjawab singkat, jelas, dan sopan." },
-            { role: "user", content: text }
-          ],
-          stream: false
-        })
-      })
+  // API key khusus DeepSeek
+  const DEEPSEEK_KEY = "sk-5c23491504274729a526ba53a92ef8f9"; // Ganti dengan API key asli
 
-      const data = await response.json()
+  // Fungsi untuk call DeepSeek
+  async function DeepSeekAI(prompt) {
+    const url = `https://api.deepseek.com/chat/completions`;
 
-      if (!data.choices || !data.choices[0]?.message?.content) {
-        throw new Error("Invalid response from DeepSeek API")
-      }
+    const body = {
+      model: "deepseek-chat",
+      messages: [{ role: "user", content: prompt }],
+      max_tokens: 1000,
+      temperature: 0.7
+    };
 
-      return data.choices[0].message.content.trim()
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${DEEPSEEK_KEY}`,
+      "User-Agent": "deepseek-js-client/1.0.0"
+    };
 
-    } catch (err) {
-      throw new Error("Failed to fetch from DeepSeek API: " + err.message)
+    const response = await fetch(url, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(body)
+    });
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(`DeepSeek API Error ${response.status}: ${err.error?.message || response.statusText}`);
     }
+
+    const result = await response.json();
+    return result?.choices?.[0]?.message?.content || "Tidak ada respon dari DeepSeek";
   }
 
-  // Endpoint Express
+  // Route endpoint /ai/deepseek
   app.get('/ai/deepseek', async (req, res) => {
-    const { text, apikey } = req.query
-
-    if (!text) {
-      return res.status(400).json({ status: false, error: 'Text is required' })
-    }
-
-    if (!apikey || apikey !== global.apikey) {
-      return res.status(403).json({ status: false, error: 'Invalid or missing API key' })
-    }
-
     try {
-      const result = await Deepseek(text)
+      const { text, apikey } = req.query;
+
+      // Validasi API key global
+      if (!global.apikey.includes(apikey)) {
+        return res.json({ status: false, error: 'Apikey invalid' });
+      }
+
+      if (!text) return res.json({ status: false, error: 'Parameter text wajib diisi' });
+
+      const result = await DeepSeekAI(text);
+
       res.status(200).json({
         status: true,
-        result
-      })
+        result: result
+      });
+
     } catch (error) {
-      res.status(500).json({ status: false, error: error.message })
+      res.json({ status: false, error: error.message });
     }
-  })
+  });
 }
