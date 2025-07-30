@@ -415,20 +415,6 @@
     "path": "/cloudflare/delete-subdomain?apikey=&subdomain=&zoneid=&token=&domain="
   }
 ],
-  "vpn": [
-  {
-    "name": "VPN Free",
-    "desc": "VPN Free Semua Negara",
-    "status": "Active",
-    "path": "/vpn/vpn-free?apikey=&country=&limit="
-  },
-  {
-    "name": "VPN Negara",
-    "desc": "List Negara VPN Free",
-    "status": "Active",
-    "path": "/vpn/vpn-countries?apikey="
-  }
-],
   "api": [
     {
       "name": "Status Api",
