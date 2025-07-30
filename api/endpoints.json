@@ -395,6 +395,20 @@
       "path": "/pterodactyl/deleteuser?apikey=&iduser=&domain=&ptla="
     }
   ],
+  "cloudflare": [
+  {
+    "name": "Create Subdomain",
+    "desc": "Create Subdomain Cloudflare",
+    "status": "Active",
+    "path": "/cloudflare/add-subdomain?apikey=&subdomain=&ip=&zoneid=&token=&domain="
+  },
+  {
+    "name": "Delete Subdomain",
+    "desc": "Delete Subdomain Cloudflare",
+    "status": "Active",
+    "path": "/cloudflare/delete-subdomain?apikey=&subdomain=&zoneid=&token=&domain="
+  }
+],
   "api": [
     {
       "name": "Status Api",
@@ -403,4 +417,4 @@
       "path": "/api/status"
     }
   ]
-    }
+}
