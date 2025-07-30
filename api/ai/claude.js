@@ -1,58 +1,48 @@
 module.exports = function(app) {
-  const fetch = require('node-fetch');
+  const fetch = require("node-fetch");
 
-  // API key khusus Claude
-  const CLAUDE_KEY = "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"; // Ganti pake API key Claude asli lu
+  // Pakai Claude API
+  const CLAUDE_KEY = "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";
 
-  async function ClaudeAI(prompt) {
-    const url = `https://api.anthropic.com/v1/messages`;
-    const body = {
-      model: "claude-3-sonnet-20240229",
-      max_tokens: 1000,
-      messages: [{ role: "user", content: prompt }]
-    };
-
-    const headers = {
-      "Content-Type": "application/json",
-      "x-api-key": CLAUDE_KEY,
-      "anthropic-version": "2023-06-01"
-    };
-
-    const response = await fetch(url, {
+  async function ClaudeReply(prompt) {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers,
-      body: JSON.stringify(body)
+      headers: {
+        "x-api-key": CLAUDE_KEY,
+        "anthropic-version": "2023-06-01",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "claude-3-haiku-20240307", // Bisa diganti sonnet/opus
+        max_tokens: 500,
+        messages: [
+          {
+            role: "user",
+            content: prompt
+          }
+        ]
+      })
     });
 
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(`Claude API Error ${response.status}: ${err.error?.message || response.statusText}`);
-    }
-
-    const result = await response.json();
-    return result?.content?.[0]?.text || "Tidak ada respon dari Claude";
+    const data = await response.json();
+    if (data.error) throw new Error(data.error.message || "Claude API error");
+    return data.content?.[0]?.text || JSON.stringify(data);
   }
 
-  app.get('/ai/claude', async (req, res) => {
+  // Endpoint Claude AI
+  app.get("/ai/claude", async (req, res) => {
     try {
       const { text, apikey } = req.query;
+      if (!text) return res.json({ status: false, error: "Parameter text wajib ada" });
+      if (!global.apikey.includes(apikey)) return res.json({ status: false, error: "Apikey invalid" });
 
-      // Validasi API key global
-      if (!global.apikey.includes(apikey)) {
-        return res.json({ status: false, error: 'Apikey invalid' });
-      }
-
-      if (!text) return res.json({ status: false, error: 'Parameter text wajib diisi' });
-
-      const result = await ClaudeAI(text);
-
+      const result = await ClaudeReply(text);
       res.status(200).json({
         status: true,
         result: result
       });
-
     } catch (error) {
       res.json({ status: false, error: error.message });
     }
   });
-}
+};
