@@ -13,6 +13,12 @@
       "path": "/ai/openai?apikey=&text="
     },
     {
+      "name": "Claude Ai",
+      "desc": "Claude Ai",
+      "status": "Active",
+      "path": "/ai/claude?apikey=&text="
+    },
+    {
       "name": "Gemini",
       "desc": "Gemini ai chat",
       "status": "Active",
