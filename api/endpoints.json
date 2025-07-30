@@ -44,7 +44,7 @@
       "name": "Create Payment",
       "desc": "Create qris payment",
       "status": "Active",
-      "path": "/tripay/createpayment?apikey=1&amount=&tripay_apikey=&tripay_privatekey=&tripay_merchant="
+      "path": "/tripay/createpayment?apikey=&amount=&tripay_apikey=&tripay_privatekey=&tripay_merchant="
     },
     {
       "name": "Cek Status",
