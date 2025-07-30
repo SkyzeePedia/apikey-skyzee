@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 module.exports = function(app) {
-  const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "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";
+  const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "sk-5c23491504274729a526ba53a92ef8f9";
 
   async function Deepsek(teks) {
     try {
