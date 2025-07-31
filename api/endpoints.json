@@ -28,7 +28,7 @@
       "name": "Llma",
       "desc": "Llma Ai",
       "status": "Active",
-      "path": "/ai/llma?apikey=&text="
+      "path": "/ai/llma?apikey=&prompt="
     },
     {
       "name": "Fluxlora",
