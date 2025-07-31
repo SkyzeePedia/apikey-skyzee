@@ -427,6 +427,12 @@
       "path": "/pterodactyl/createadmin?apikey=&username=&domain=&ptla="
     },
     {
+      "name": "Pembersih Pterodactyl",
+      "desc": "Pembersih Akun & Server Pterodactyl",
+      "status": "Active",
+      "path": "/pterodactyl/pembersih-server?apikey=&plta=&domain="
+    },
+    {
       "name": "Delete User Panel",
       "desc": "Delete User Pterodactyl",
       "status": "Active",
