@@ -23,6 +23,24 @@
       "desc": "Gemini ai chat",
       "status": "Active",
       "path": "/ai/gemini?apikey=&text="
+    },
+    {
+      "name": "Llma",
+      "desc": "Llma Ai",
+      "status": "Active",
+      "path": "/ai/llma?apikey=&text="
+    },
+    {
+      "name": "Fluxlora",
+      "desc": "Fluxlora Ai Image",
+      "status": "Active",
+      "path": "/ai/fluxlora?apikey=&text="
+    },
+    {
+      "name": "Gemini",
+      "desc": "Gemini ai chat",
+      "status": "Active",
+      "path": "/ai/chat-ai?apikey=&question=&model="
     }
   ],
   "orderkuota": [
