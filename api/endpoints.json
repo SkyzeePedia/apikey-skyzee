@@ -37,8 +37,8 @@
       "path": "/ai/fluxlora?apikey=&text="
     },
     {
-      "name": "Gemini",
-      "desc": "Gemini ai chat",
+      "name": "Chat-Ai",
+      "desc": "Chat-Ai Berbagai Model",
       "status": "Active",
       "path": "/ai/chat-ai?apikey=&question=&model="
     }
