@@ -453,6 +453,14 @@
     "path": "/cloudflare/delete-subdomain?apikey=&subdomain=&zoneid=&token=&domain="
   }
 ],
+  "cuaca": [
+  {
+    "name": "Cuaca",
+    "desc": "Cek Cuaca Dareah Kamu",
+    "status": "Active",
+    "path": "/cuaca/cek-cuaca?apikey="
+  }
+],
   "api": [
     {
       "name": "Status Api",
